@@ -42,9 +42,13 @@ function getData(){
              mark_color=mark_color
             // y_array = y_array.reverse()
              text_array=table.otu_labels.slice(0,10)
+             console.log("Label"+y_array)
+             console.log("hover_text"+text_array)
              trace1={
                x:x_array,
                y:y_array,
+             //  hovertemplate: '<i>Ids/i>: $%{text_array:.2f}',
+               showlegend: false,
                text:text_array,
                orientation: 'h',
                type: "bar"
@@ -57,12 +61,12 @@ function getData(){
                   marker:{
                      size:x_array1,
                      color:mark_color
-                     }
-             //     text:text_array
+                     },
+                   text:text_array,
+                   config: { responsive: true }
                   }
          
             var layout = {
-               title: "Belly Button",
                margin: {
                  l: 50,
                  r: 50,
@@ -113,8 +117,6 @@ function getData(){
    // part of data to input
 
    data.metadata.forEach(function(key,){
-
-      
 
       if (dataset == key["id"]){
 
